@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prep Pal - Exam Deadlines</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📅 Exam Deadlines</h1>
+    <p class="subtitle">Keep track of your important dates ✨</p>
+
+    <div class="deadline-form">
+      <input type="date" id="examDate">
+      <input type="text" id="examNote" placeholder="Exam/Deadline name...">
+      <button onclick="addDeadline()">➕ Add</button>
+    </div>
+
+    <ul id="deadlineList"></ul>
+
+    <a href="index.html" class="back-link">⬅ Back to Home</a>
+  </div>
+
+  <script>
+    function addDeadline() {
+      const date = document.getElementById("examDate").value;
+      const note = document.getElementById("examNote").value.trim();
+      if (!date) return alert("Please select a date!");
+
+      const list = document.getElementById("deadlineList");
+      const li = document.createElement("li");
+      li.className = "fade-in";
+
+      const formattedDate = new Date(date).toLocaleDateString("en-GB", {
+        day: "numeric", month: "short", year: "numeric"
+      });
+
+      li.innerHTML = `<strong>${formattedDate}</strong> - ${note || "No Note"} 
+                      <button onclick="removeDeadline(this)">❌</button>`;
+      list.appendChild(li);
+
+      document.getElementById("examDate").value = "";
+      document.getElementById("examNote").value = "";
+    }
+
+    function removeDeadline(btn) {
+      btn.parentElement.classList.add("fade-out");
+      setTimeout(() => btn.parentElement.remove(), 300);
+    }
+  </script>
+</body>
+</html>

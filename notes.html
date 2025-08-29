@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes - Student Dashboard</title>
+  <link rel="stylesheet" href="notes.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🗒️ My Notes</h1>
+
+    <!-- Add Note Form -->
+    <form id="noteForm">
+      <input type="text" id="noteTitle" placeholder="Title..." required>
+      <textarea id="noteContent" placeholder="Write your note..." required></textarea>
+      <button type="submit">Add Note</button>
+    </form>
+
+    <!-- Notes Display -->
+    <div id="notesContainer"></div>
+  </div>
+
+  <script src="notes.js"></script>
+</body>
+</html>

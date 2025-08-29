@@ -1,0 +1,218 @@
+/* ------------------ */
+/* AESTHETIC POLISH ✨*/
+/* ------------------ */
+
+/* Smooth fade for everything */
+body, header, nav, main, section, div {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sticky note wiggle */
+.sticky-note {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sticky-note:hover {
+  transform: rotate(1deg) scale(1.05);
+  box-shadow: 4px 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Button glow */
+#add-task {
+  transition: all 0.3s ease;
+}
+#add-task:hover {
+  background: #f08bb9;
+  box-shadow: 0 0 12px #f8c8dc;
+  transform: translateY(-2px);
+}
+
+/* Nav link hover effect */
+.nav-bar a {
+  position: relative;
+  overflow: hidden;
+}
+.nav-bar a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background: #e6a6bf;
+  transition: 0.4s;
+}
+.nav-bar a:hover::after {
+  width: 100%;
+}
+
+/* To-do list hover highlight */
+.todo li {
+  padding: 4px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+.todo li:hover {
+  background: #ffeef7;
+}
+
+/* Slideshow transition */
+.slide {
+  display: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: #4b2e83;
+  animation: slideFade 1s ease-in-out;
+}
+@keyframes slideFade {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Analog clock subtle glow */
+.analog-clock {
+  box-shadow: 0 4px 12px rgba(248, 200, 220, 0.8);
+  transition: transform 0.4s ease;
+}
+.analog-clock:hover {
+  transform: scale(1.05);
+}
+/* Subjects Page */
+.subjects-section {
+  width: 70%;
+  margin: 30px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.subject-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+#subject-input, #priority-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex: 1;
+}
+
+#add-subject {
+  padding: 8px 12px;
+  border: none;
+  background: #f8c8dc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#add-subject:hover {
+  background: #e6a6bf;
+  color: #fff;
+}
+
+#subject-list {
+  list-style: none;
+  padding: 0;
+}
+
+#subject-list li {
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffeef7;
+  font-weight: 500;
+}
+
+#subject-list li .priority {
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.priority.High { background: #e63946; }   /* red for high */
+.priority.Medium { background: #ffb703; } /* yellow for medium */
+.priority.Low { background: #2a9d8f; }   /* teal for low */
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: #b30000;
+  cursor: pointer;
+  font-size: 18px;
+}
+.delete-btn:hover {
+  color: #ff0000;
+}
+.deadline-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.deadline-form input, .deadline-form button {
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+.deadline-form button {
+  background: #ffafbd;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.deadline-form button:hover {
+  background: #ff6f91;
+}
+
+#deadlineList {
+  list-style: none;
+  padding: 0;
+}
+
+#deadlineList li {
+  background: #ffecec;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#deadlineList button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(5px); }
+}

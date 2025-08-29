@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prep Pal - Deadlines</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fef9f8;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .note-board {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .note {
+      background: #ffeb99;
+      padding: 15px;
+      width: 150px;
+      height: 150px;
+      box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      position: relative;
+      font-size: 14px;
+      word-wrap: break-word;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .note .delete-btn {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #444;
+    }
+
+    form {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #6c63ff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #574b90;
+    }
+  </style>
+</head>
+<body>
+  <h1>📌 My Deadlines</h1>
+
+  <form id="deadlineForm">
+    <input type="text" id="deadlineInput" placeholder="Enter deadline..." required>
+    <button type="submit">Add</button>
+  </form>
+
+  <div class="note-board" id="noteBoard"></div>
+
+  <script>
+    const form = document.getElementById('deadlineForm');
+    const input = document.getElementById('deadlineInput');
+    const noteBoard = document.getElementById('noteBoard');
+
+    // Load from localStorage
+    let deadlines = JSON.parse(localStorage.getItem('deadlines')) || [];
+
+    // Save to localStorage
+    function saveDeadlines() {
+      localStorage.setItem('deadlines', JSON.stringify(deadlines));
+    }
+
+    // Render all notes
+    function renderNotes() {
+      noteBoard.innerHTML = '';
+      deadlines.forEach((text, index) => {
+        const note = document.createElement('div');
+        note.classList.add('note');
+        note.innerHTML = `
+          <button class="delete-btn" onclick="deleteNote(${index})">❌</button>
+          ${text}
+        `;
+        noteBoard.appendChild(note);
+      });
+    }
+
+    // Add new note
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      deadlines.push(input.value);
+      input.value = '';
+      saveDeadlines();
+      renderNotes();
+    });
+
+    // Delete note
+    function deleteNote(index) {
+      deadlines.splice(index, 1);
+      saveDeadlines();
+      renderNotes();
+    }
+
+    // Initial render
+    renderNotes();
+  </script>
+</body>
+</html>

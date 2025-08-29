@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prep Pal ✨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="logo">Prep Pal ✨</div>
+    <div class="welcome">Welcome, Neha! 💜</div>
+    <div class="clock" id="clock"></div>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="nav-bar">
+    <a href="#">Subjects</a>
+    <a href="#">Time</a>
+    <a href="#">Deadline</a>
+    <a href="#">Notes</a>
+  </nav>
+
+  <!-- Main Section -->
+  <main>
+    <!-- Slideshow -->
+    <section class="slideshow">
+      <div class="slide">Balanced Study Plan 📘</div>
+      <div class="slide">Crash Course Mode ⚡</div>
+      <div class="slide">Daily Revision Template 📝</div>
+    </section>
+
+    <!-- Motivational Sticky Note -->
+    <section class="sticky-note">
+      <p>✨ Believe in yourself. You can do it! ✨</p>
+    </section>
+
+    <!-- Widgets Row -->
+    <section class="widgets">
+      <!-- To-do List -->
+      <div class="todo">
+        <h3>To-Do List 🗒️</h3>
+        <ul id="todo-list">
+          <li><input type="checkbox"> Finish Math chapter</li>
+          <li><input type="checkbox"> Revise DBMS notes</li>
+        </ul>
+        <input type="text" id="new-task" placeholder="New task...">
+        <button id="add-task">Add</button>
+      </div>
+
+      <!-- Clock Widget -->
+      <div class="analog-clock">
+        <canvas id="analogClock" width="200" height="200"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

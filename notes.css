@@ -1,0 +1,87 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff8f0;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
+}
+
+h1 {
+  color: #ff9a8b;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+form input, form textarea {
+  padding: 10px;
+  border: 2px solid #ffd3b6;
+  border-radius: 10px;
+  font-size: 14px;
+  resize: none;
+}
+
+form button {
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background: #ff9a8b;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: #ff6f61;
+}
+
+#notesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.note {
+  background: #fffacd;
+  padding: 15px;
+  border-radius: 10px;
+  width: 200px;
+  position: relative;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.note h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.note p {
+  font-size: 14px;
+  color: #555;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #e74c3c;
+}

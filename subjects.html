@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prep Pal | Subjects</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fce3ec, #ffe6f7);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #ff85a2;
+      color: white;
+      padding: 1rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #ff4f81;
+      margin-bottom: 1rem;
+    }
+
+    .input-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    input {
+      padding: 0.7rem;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      flex: 1;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 10px;
+      background: #ff4f81;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #e63e70;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #ffe6ef;
+      margin: 0.5rem 0;
+      padding: 0.8rem;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.2s ease;
+    }
+
+    li:hover {
+      transform: scale(1.02);
+    }
+
+    .remove-btn {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      color: #ff4f81;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .remove-btn:hover {
+      color: #d63363;
+    }
+  </style>
+</head>
+<body>
+  <header>📚 Subjects</header>
+  <div class="container">
+    <h2>Add Your Subjects</h2>
+    <div class="input-box">
+      <input type="text" id="subjectInput" placeholder="Enter subject name...">
+      <button onclick="addSubject()">Add</button>
+    </div>
+    <ul id="subjectList"></ul>
+  </div>
+
+  <script>
+    const subjectInput = document.getElementById('subjectInput');
+    const subjectList = document.getElementById('subjectList');
+
+    function addSubject() {
+      const subjectName = subjectInput.value.trim();
+      if (subjectName === "") return;
+
+      const li = document.createElement("li");
+      li.textContent = subjectName;
+
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "❌";
+      removeBtn.classList.add("remove-btn");
+      removeBtn.onclick = function () {
+        li.remove();
+      };
+
+      li.appendChild(removeBtn);
+      subjectList.appendChild(li);
+
+      subjectInput.value = "";
+    }
+  </script>
+</body>
+</html>

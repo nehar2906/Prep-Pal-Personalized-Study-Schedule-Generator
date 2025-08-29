@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prep Pal – Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fce7f3, #e0f2fe);
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #ec4899;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ec4899;
+    }
+
+    .content {
+      padding: 40px;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .time-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 350px;
+      margin: 0 auto;
+      animation: slideUp 0.8s ease;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #ec4899;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #db2777;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+      from {transform: translateY(20px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Prep Pal</h1>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="available-time.html">Available Time</a>
+      <a href="subjects.html">Subjects</a>
+      <a href="exam-date.html">Exam Date</a>
+      <a href="notes.html">Notes</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <div class="time-card">
+      <h2>Set Available Time ⏰</h2>
+      <form>
+        <label for="weekday">Weekdays (hours/day)</label>
+        <input type="number" id="weekday" placeholder="e.g. 4">
+
+        <label for="weekend">Weekends (hours/day)</label>
+        <input type="number" id="weekend" placeholder="e.g. 6">
+
+        <button type="button" onclick="saveTime()">Save Time</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function saveTime() {
+      let weekday = document.getElementById('weekday').value;
+      let weekend = document.getElementById('weekend').value;
+      if(weekday && weekend) {
+        alert(`✅ Time Saved! Weekdays: ${weekday} hrs/day, Weekends: ${weekend} hrs/day`);
+      } else {
+        alert("⚠️ Please enter both weekday and weekend hours.");
+      }
+    }
+  </script>
+
+</body>
+</html>
